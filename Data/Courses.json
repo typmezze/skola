@@ -1,19 +1,40 @@
-{
-  "courseId": 1,
-  "title": "Svenska",
-  "teacher": {
-    "skills": "C#, Javascript, HTML, CSS, JS,",
-    "courses": "Svenska",
-    "id": 1,
-    "firstName": "Janne",
-    "lastName": "Hansson",
-    "email": "janne@gmail.se"
+[
+  {
+    "courseId": 1,
+    "title": "Svenska",
+    "teacher": {
+      "skills": "C#, Javascript, HTML, CSS, JS,",
+      "courses": "Svenska",
+      "id": 1,
+      "firstName": "Janne",
+      "lastName": "Hansson",
+      "email": "janne@gmail.se"
+    },
+    "courseSpec": {
+      "courseNumber": "Sv24-00-00",
+      "duration": "2 veckor",
+      "start": "2024-10-03T00:00:00+02:00",
+      "end": "2024-10-03T00:00:00+02:00",
+      "place": "Distans"
+    }
   },
-  "courseSpec": {
-    "courseNumber": "Sv24-00-00",
-    "duration": "2 veckor",
-    "start": "2024-10-03T00:00:00+02:00",
-    "end": "2024-10-03T00:00:00+02:00",
-    "place": "Distans"
+  {
+    "courseId": 12,
+    "title": "Spanska",
+    "teacher": {
+      "skills": "C#, Javascript, HTML, CSS, JS,",
+      "courses": "Svenska",
+      "id": 1,
+      "firstName": "Janne",
+      "lastName": "Hansson",
+      "email": "janne@gmail.se"
+    },
+    "courseSpec": {
+      "courseNumber": "Sv24-00-00",
+      "duration": "2 veckor",
+      "start": "2024-10-03T00:00:00+02:00",
+      "end": "2024-10-03T00:00:00+02:00",
+      "place": "Distans"
+    }
   }
-}
+]
