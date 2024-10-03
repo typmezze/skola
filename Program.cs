@@ -9,14 +9,28 @@ class Program {
     static void Main() {
 
         // Course 1
-        var course = new Course() {
-            CourseId = 1,
-            Title = "Svenska",
+        var course = new Course();
+        course.CourseId = 1;
+        course.Title = "Svenska";
+        course.Teacher = new Teacher {
+            FirstName = "Janne",
+            LastName = "Hansson",
+            Email = "janne@gmail.se",
+            Id = 1,
+            Skills = "C#, Javascript, HTML, CSS, JS,",
+            Courses = "Svenska"
+        };
+        course.CourseSpec = new CourseSpec {
+            CourseNumber = "Sv24-00-00",
             Duration = "2 veckor",
             Start = DateTime.Today,
             End = DateTime.Today,
             Place = "Distans"
         };
+
+
+
+
 
         var options = new JsonSerializerOptions() {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
