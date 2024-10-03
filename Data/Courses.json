@@ -3,7 +3,7 @@
     "courseId": 1,
     "title": "Svenska",
     "teacher": {
-      "skills": "C#, Javascript, HTML, CSS, JS,",
+      "skills": "C#, Javascript, HTML, CSS, JS",
       "courses": "Svenska",
       "id": 1,
       "firstName": "Janne",
@@ -19,18 +19,18 @@
     }
   },
   {
-    "courseId": 12,
+    "courseId": 136,
     "title": "Spanska",
     "teacher": {
-      "skills": "C#, Javascript, HTML, CSS, JS,",
-      "courses": "Svenska",
+      "skills": "Spanska",
+      "courses": "Spanska",
       "id": 1,
-      "firstName": "Janne",
-      "lastName": "Hansson",
-      "email": "janne@gmail.se"
+      "firstName": "Greta",
+      "lastName": "May",
+      "email": "gr3tish@gmail.se"
     },
     "courseSpec": {
-      "courseNumber": "Sv24-00-00",
+      "courseNumber": "Sp24-00-00",
       "duration": "2 veckor",
       "start": "2024-10-03T00:00:00+02:00",
       "end": "2024-10-03T00:00:00+02:00",

@@ -18,7 +18,7 @@ class Program {
             LastName = "Hansson",
             Email = "janne@gmail.se",
             Id = 1,
-            Skills = "C#, Javascript, HTML, CSS, JS,",
+            Skills = "C#, Javascript, HTML, CSS, JS",
             Courses = "Svenska"
         };
         course.CourseSpec = new CourseSpec {
@@ -34,18 +34,18 @@ class Program {
 
         // Course 2
         course = new Course();
-        course.CourseId = 12;
+        course.CourseId = 136;
         course.Title = "Spanska";
         course.Teacher = new Teacher {
-            FirstName = "Janne",
-            LastName = "Hansson",
-            Email = "janne@gmail.se",
+            FirstName = "Greta",
+            LastName = "May",
+            Email = "gr3tish@gmail.se",
             Id = 1,
-            Skills = "C#, Javascript, HTML, CSS, JS,",
-            Courses = "Svenska"
+            Skills = "Spanska",
+            Courses = "Spanska"
         };
         course.CourseSpec = new CourseSpec {
-            CourseNumber = "Sv24-00-00",
+            CourseNumber = "Sp24-00-00",
             Duration = "2 veckor",
             Start = DateTime.Today,
             End = DateTime.Today,
@@ -57,25 +57,23 @@ class Program {
 
 
 
-        var options = new JsonSerializerOptions() {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            WriteIndented = true,
-            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-        };
-        // Write JSon File
         var path = string.Concat(Environment.CurrentDirectory, "/Data/Courses.json");
-        var json = JsonSerializer.Serialize(courses, options);
-        File.WriteAllText(path, json);
-        // Read Json File
-        var savedJson = File.ReadAllText(path);
+        JsonStorage.WriteJson(path, courses);
+
+        var coursesFromFile = JsonStorage.ReadJs(path);
+
+        Console.WriteLine("");
+        Console.WriteLine("Kurser:");
         
-
-        options = new JsonSerializerOptions() {
-            PropertyNameCaseInsensitive = true
-        };
-        var xcourse = JsonSerializer.Deserialize<Course>(savedJson);
-        Console.WriteLine(xcourse);
-
-
+        foreach(var jsonCourse in coursesFromFile){
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("");
+            Console.WriteLine(jsonCourse);
+            Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"Personal ID: #{course.Teacher.Id}, Lärare: {course.Teacher.FirstName} {course.Teacher.LastName}");
+            
+        }
+        
+        Console.ResetColor();
     }
 }
