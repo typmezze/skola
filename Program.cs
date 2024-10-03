@@ -1,4 +1,6 @@
 ﻿using System.Data.SqlTypes;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using Skola.Models;
 
 namespace Skola;
@@ -7,33 +9,32 @@ class Program {
     static void Main() {
 
         // Course 1
-        /* var course = new Course();
-
-        course.CourseId = 1;
-        course.Course = new Course {
+        var course = new Course() {
+            CourseId = 1,
             Title = "Svenska",
             Duration = "2 veckor",
             Start = DateTime.Today,
             End = DateTime.Today,
             Place = "Distans"
-        }; */
+        };
 
-        // JSon File Place
-        var path = Environment.CurrentDirectory + "/Data/Courses.txt";
+        var options = new JsonSerializerOptions() {
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            WriteIndented = true,
+            Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+        };
+        // Write JSon File
+        var path = string.Concat(Environment.CurrentDirectory, "/Data/Courses.json");
+        var json = JsonSerializer.Serialize(course, options);
+        File.WriteAllText(path, json);
+        // Read Json File
+        var savedJson = File.ReadAllText(path);
+        
 
-        // StreamWriter Class
-        using StreamWriter write = new(path);
-        var message = "+ Course created " + DateTime.Now;
-        write.WriteLine(message);
-
-        message = "+ Course created " + DateTime.Now;
-        write.WriteLine(message);
-        write.Close();
-
-        using StreamReader read = new(path);
-        var text = read.ReadToEnd();
-        Console.WriteLine(text);
-        read.Close();
-       
+        options = new JsonSerializerOptions() {
+            PropertyNameCaseInsensitive = true
+        };
+        var xcourse = JsonSerializer.Deserialize<Course>(savedJson);
+        Console.WriteLine(xcourse);
     }
 }
