@@ -1,0 +1,18 @@
+[
+  {
+    "skills": "C#, Javascript, HTML, CSS, JS",
+    "courses": "Svenska",
+    "id": 1,
+    "firstName": "Janne",
+    "lastName": "Hansson",
+    "email": "janne@gmail.se"
+  },
+  {
+    "skills": "C#, Javascript, HTML, CSS, JS",
+    "courses": "Svenska",
+    "id": 3,
+    "firstName": "Janne",
+    "lastName": "Hansson",
+    "email": "janne@gmail.se"
+  }
+]

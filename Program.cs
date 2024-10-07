@@ -8,6 +8,28 @@ namespace Skola;
 class Program {
     static void Main() {
         var courses = new List<Course>();
+        var teachers = new List<Teacher>();
+        var pathTeachers = string.Concat(Environment.CurrentDirectory, "/Data/Teachers.json");
+
+
+        var teacher = new Teacher() {
+            FirstName = "Janne",
+            LastName = "Hansson",
+            Email = "janne@gmail.se",
+            Id = 1,
+            Skills = "C#, Javascript, HTML, CSS, JS",
+            Courses = "Svenska"
+        };
+        teachers.Add(teacher);
+        teacher = new Teacher() {
+            Id = 3,
+            FirstName = "Janne",
+            LastName = "Hansson",
+            Email = "janne@gmail.se",
+            Skills = "C#, Javascript, HTML, CSS, JS",
+            Courses = "Svenska"
+        };
+        teachers.Add(teacher);
 
         // Course 1
         var course = new Course();
@@ -51,10 +73,22 @@ class Program {
             End = DateTime.Today,
             Place = "Distans"
         };
-        
         courses.Add(course);
 
 
+
+        // JsonStorage.WriteJsonTeachers(pathTeachers, teachers);
+        // var coursesFromFile = JsonStorage.ReadJs(pathTeachers);
+        // Console.WriteLine("");
+        // Console.WriteLine("Lärare:");
+        // foreach(var jsonTeacher in coursesFromFile){
+        //     Console.ForegroundColor = ConsoleColor.Cyan;
+        //     Console.WriteLine("");
+        //     Console.WriteLine(jsonTeacher);
+        //     Console.ForegroundColor = ConsoleColor.Green;
+        //         Console.WriteLine($"Personal ID: #{course.Teacher.Id}, Lärare: {course.Teacher.FirstName} {course.Teacher.LastName}");
+            
+        // }
 
 
         var path = string.Concat(Environment.CurrentDirectory, "/Data/Courses.json");
