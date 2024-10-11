@@ -8,6 +8,6 @@ public class Student:Person {
     public string Grade { get; set; }
 
     public override string ToString() {
-        return $"{FirstName}, {Pnumber}, {Address}, {PostalCode}, {City}, {Grade}";
+        return $"{Id}, {FirstName}, {Pnumber}, {Address}, {PostalCode}, {City}, {Grade}";
     }
 }

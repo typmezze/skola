@@ -6,7 +6,7 @@ public class Teacher:Person {
 
     public override string ToString()
     {
-        return $"{FirstName}, {Skills}, {Courses}";
+        return $"{Id}, {FirstName}, {Skills}, {Courses}";
     }
 
 }

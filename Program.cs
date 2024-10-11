@@ -8,32 +8,32 @@ namespace Skola;
 class Program {
     static void Main() {
         var courses = new List<Course>();
-        var teachers = new List<Teacher>();
-        var pathTeachers = string.Concat(Environment.CurrentDirectory, "/Data/Teachers.json");
+        // var teachers = new List<Teacher>();
+        // var pathTeachers = string.Concat(Environment.CurrentDirectory, "/Data/Teachers.json");
 
 
-        var teacher = new Teacher() {
-            FirstName = "Janne",
-            LastName = "Hansson",
-            Email = "janne@gmail.se",
-            Id = 1,
-            Skills = "C#, Javascript, HTML, CSS, JS",
-            Courses = "Svenska"
-        };
-        teachers.Add(teacher);
-        teacher = new Teacher() {
-            Id = 3,
-            FirstName = "Janne",
-            LastName = "Hansson",
-            Email = "janne@gmail.se",
-            Skills = "C#, Javascript, HTML, CSS, JS",
-            Courses = "Svenska"
-        };
-        teachers.Add(teacher);
+        // var teacher = new Teacher() {
+        //     Id = 1,
+        //     FirstName = "Jan",
+        //     LastName = "Hansson",
+        //     Email = "janne@gmail.se",
+        //     Skills = "C#, Javascript, HTML, CSS, JS",
+        //     Courses = "Svenska"
+        // };
+        // teachers.Add(teacher);
+        // teacher = new Teacher() {
+        //     Id = 3,
+        //     FirstName = "Janne",
+        //     LastName = "Hansson",
+        //     Email = "janne@gmail.se",
+        //     Skills = "C#, Javascript, HTML, CSS, JS",
+        //     Courses = "Svenska"
+        // };
+        // teachers.Add(teacher);
 
         // Course 1
         var course = new Course();
-        course.CourseId = 1;
+        course.CourseNumber = 1;
         course.Title = "Svenska";
         course.Teacher = new Teacher {
             FirstName = "Janne",
@@ -44,11 +44,11 @@ class Program {
             Courses = "Svenska"
         };
         course.CourseSpec = new CourseSpec {
-            CourseNumber = "Sv24-00-00",
+            CourseId = "Sv24-00-00",
             Duration = "2 veckor",
             Start = DateTime.Today,
-            End = DateTime.Today,
-            Place = "Distans"
+            End = DateTime.Today.AddDays(14),
+            Place = "Klassrum"
         };
 
         courses.Add(course);
@@ -56,21 +56,42 @@ class Program {
 
         // Course 2
         course = new Course();
-        course.CourseId = 136;
+        course.CourseNumber = 2;
+        course.Title = "Nätverksprogrammering";
+        course.Teacher = new Teacher {
+            FirstName = "Sven",
+            LastName = "Svensson",
+            Email = "Svenne@gmail.se",
+            Id = 2,
+            Skills = "It",
+            Courses = "Nätverksprogrammering"
+        };
+        course.CourseSpec = new CourseSpec {
+            CourseId = "ITPR-24-06",
+            Duration = "3 Years",
+            Start = DateTime.Today,
+            End = DateTime.Today.AddYears(3),
+            Place = "Distans"
+        };
+        courses.Add(course);
+
+        // Course 3
+        course = new Course();
+        course.CourseNumber = 136;
         course.Title = "Spanska";
         course.Teacher = new Teacher {
             FirstName = "Greta",
             LastName = "May",
             Email = "gr3tish@gmail.se",
-            Id = 1,
+            Id = 3,
             Skills = "Spanska",
             Courses = "Spanska"
         };
         course.CourseSpec = new CourseSpec {
-            CourseNumber = "Sp24-00-00",
-            Duration = "2 veckor",
+            CourseId = "Sp24-00-00",
+            Duration = "6 Månader",
             Start = DateTime.Today,
-            End = DateTime.Today,
+            End = DateTime.Today.AddMonths(6),
             Place = "Distans"
         };
         courses.Add(course);
@@ -82,10 +103,10 @@ class Program {
         // Console.WriteLine("");
         // Console.WriteLine("Lärare:");
         // foreach(var jsonTeacher in coursesFromFile){
-        //     Console.ForegroundColor = ConsoleColor.Cyan;
+        //     Console.ForegroundColor = ConsoleColor.Yellow;
         //     Console.WriteLine("");
         //     Console.WriteLine(jsonTeacher);
-        //     Console.ForegroundColor = ConsoleColor.Green;
+        //     Console.ForegroundColor = ConsoleColor.Blue;
         //         Console.WriteLine($"Personal ID: #{course.Teacher.Id}, Lärare: {course.Teacher.FirstName} {course.Teacher.LastName}");
             
         // }
@@ -96,18 +117,22 @@ class Program {
 
         var coursesFromFile = JsonStorage.ReadJs(path);
 
+        Console.Clear();
         Console.WriteLine("");
         Console.WriteLine("Kurser:");
         
         foreach(var jsonCourse in coursesFromFile){
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("");
-            Console.WriteLine(jsonCourse);
-            Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Personal ID: #{course.Teacher.Id}, Lärare: {course.Teacher.FirstName} {course.Teacher.LastName}");
+            Console.WriteLine("---------------------------------------");
+            Console.WriteLine($"Kurs: {jsonCourse.Title} - #{jsonCourse.CourseNumber}");
+            Console.WriteLine("Kursinfo:");
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             
+            Console.WriteLine($" Kursid: {jsonCourse.CourseSpec.CourseId} \n Längd: {jsonCourse.CourseSpec.Duration} \n Start: {jsonCourse.CourseSpec.Start} \n Avslut: {jsonCourse.CourseSpec.End} \n Plats: {jsonCourse.CourseSpec.Place} \n Lärare: {jsonCourse.Teacher.FirstName} {jsonCourse.Teacher.LastName} ");
+            Console.ResetColor();
+            Console.WriteLine("---------------------------------------");
         }
         
-        Console.ResetColor();
+        
     }
 }

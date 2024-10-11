@@ -1,6 +1,6 @@
 [
   {
-    "courseId": 1,
+    "courseNumber": 1,
     "title": "Svenska",
     "teacher": {
       "skills": "C#, Javascript, HTML, CSS, JS",
@@ -11,29 +11,48 @@
       "email": "janne@gmail.se"
     },
     "courseSpec": {
-      "courseNumber": "Sv24-00-00",
+      "courseId": "Sv24-00-00",
       "duration": "2 veckor",
-      "start": "2024-10-07T00:00:00+02:00",
-      "end": "2024-10-07T00:00:00+02:00",
+      "start": "2024-10-11T00:00:00+02:00",
+      "end": "2024-10-25T00:00:00+02:00",
+      "place": "Klassrum"
+    }
+  },
+  {
+    "courseNumber": 2,
+    "title": "Nätverksprogrammering",
+    "teacher": {
+      "skills": "It",
+      "courses": "Nätverksprogrammering",
+      "id": 2,
+      "firstName": "Sven",
+      "lastName": "Svensson",
+      "email": "Svenne@gmail.se"
+    },
+    "courseSpec": {
+      "courseId": "ITPR-24-06",
+      "duration": "3 Years",
+      "start": "2024-10-11T00:00:00+02:00",
+      "end": "2027-10-11T00:00:00+02:00",
       "place": "Distans"
     }
   },
   {
-    "courseId": 136,
+    "courseNumber": 136,
     "title": "Spanska",
     "teacher": {
       "skills": "Spanska",
       "courses": "Spanska",
-      "id": 1,
+      "id": 3,
       "firstName": "Greta",
       "lastName": "May",
       "email": "gr3tish@gmail.se"
     },
     "courseSpec": {
-      "courseNumber": "Sp24-00-00",
-      "duration": "2 veckor",
-      "start": "2024-10-07T00:00:00+02:00",
-      "end": "2024-10-07T00:00:00+02:00",
+      "courseId": "Sp24-00-00",
+      "duration": "6 Månader",
+      "start": "2024-10-11T00:00:00+02:00",
+      "end": "2025-04-11T00:00:00+02:00",
       "place": "Distans"
     }
   }
